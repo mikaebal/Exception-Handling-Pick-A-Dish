@@ -7,12 +7,16 @@ def your_menu(foods):
         for dish in foods:
             print(f"{index}. {dish}")
             index += 1
-    
+
         selected_choice = int(input("Your order number? "))
         select_dish(foods, selected_choice - 1)
     except IndexError as error:
         print(f"{error} was entered.")
         print("Next time try entering something on the menu!")
+    except (SyntaxError, ValueError) as error:
+        print(f"{error} was entered.")
+        print(f"Next time enter dish number!")
+
 
 menu_items = [
     "Yakisoba",
